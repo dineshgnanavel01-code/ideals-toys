@@ -301,10 +301,6 @@ export default function Hero() {
             adorable friends designed to make every childhood moment
             unforgettable.
           </motion.p>
-
-          {/* =========================
-              CTA BUTTONS
-          ========================= */}
           <motion.div
             initial={{
               opacity: 0,
@@ -442,10 +438,6 @@ export default function Hero() {
             ))}
           </motion.div>
         </motion.div>
-
-        {/* =========================
-            RIGHT 3D TOY
-        ========================= */}
         <motion.div
           initial={{
             opacity: 0,
@@ -827,7 +819,6 @@ export default function Hero() {
         </motion.div>
       </div>
 
-      {/* Bottom wave */}
       <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-20 bg-white/30 [clip-path:ellipse(70%_50%_at_50%_100%)]" />
     </section>
   );

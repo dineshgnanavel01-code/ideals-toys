@@ -81,10 +81,7 @@ export default function Navbar({
     pincode: "",
   });
 
-  /* =========================================================
-     AUTH STATE
-  ========================================================= */
-
+ 
   const [authOpen, setAuthOpen] = useState(false);
   const [authMode, setAuthMode] = useState("login");
 
@@ -110,10 +107,6 @@ export default function Navbar({
 
   const [authMessage, setAuthMessage] = useState("");
 
-  /* =========================================================
-     LOAD USER
-  ========================================================= */
-
   useEffect(() => {
     const savedUser = localStorage.getItem("idealsUser");
 
@@ -136,9 +129,7 @@ export default function Navbar({
     }
   }, []);
 
-  /* =========================================================
-     CART CALCULATIONS
-  ========================================================= */
+
 
   const cartCount = cart.reduce(
     (total, item) => total + (item.quantity || 1),
@@ -156,9 +147,6 @@ export default function Navbar({
 
   const total = subtotal + delivery;
 
-  /* =========================================================
-     CART FUNCTIONS
-  ========================================================= */
 
   const updateQty = (id, quantity) => {
     if (quantity <= 0) {
@@ -168,10 +156,6 @@ export default function Navbar({
 
     onUpdateQuantity?.(id, quantity);
   };
-
-  /* =========================================================
-     ORDER
-  ========================================================= */
 
   const generateOrderId = () => {
     const random = Math.floor(
@@ -234,18 +218,10 @@ export default function Navbar({
     setTrackingOpen(true);
   };
 
-  /* =========================================================
-     NAVIGATION
-  ========================================================= */
-
   const handleNavClick = () => {
     setMenuOpen(false);
     setSearchOpen(false);
   };
-
-  /* =========================================================
-     LOGIN
-  ========================================================= */
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -306,10 +282,6 @@ export default function Navbar({
     });
     setAuthMessage("");
   };
-
-  /* =========================================================
-     SIGNUP
-  ========================================================= */
 
   const handleSignup = (e) => {
     e.preventDefault();
@@ -383,10 +355,6 @@ export default function Navbar({
     setAuthMessage("");
   };
 
-  /* =========================================================
-     LOGOUT
-  ========================================================= */
-
   const handleLogout = () => {
     localStorage.removeItem("idealsUser");
 
@@ -395,10 +363,6 @@ export default function Navbar({
     setProfileOpen(false);
     setProfileEdit(false);
   };
-
-  /* =========================================================
-     SAVE PROFILE
-  ========================================================= */
 
   const saveProfile = () => {
     const updatedUser = {
@@ -421,10 +385,6 @@ export default function Navbar({
     setProfileEdit(false);
   };
 
-  /* =========================================================
-     OPEN PROFILE
-  ========================================================= */
-
   const openProfile = () => {
     if (!user) {
       setAuthMode("login");
@@ -437,9 +397,6 @@ export default function Navbar({
 
   return (
     <>
-      {/* =====================================================
-          NAVBAR
-      ====================================================== */}
 
       <motion.header
         initial={{ y: -100, opacity: 0 }}
@@ -662,8 +619,6 @@ export default function Navbar({
               </AnimatePresence>
             </motion.button>
 
-            {/* MOBILE MENU TOGGLE BUTTON */}
-
             <motion.button
               type="button"
               whileTap={{ scale: 0.85 }}
@@ -675,7 +630,6 @@ export default function Navbar({
           </div>
         </div>
 
-        {/* SEARCH BAR INPUT OVERLAY */}
 
         <AnimatePresence>
           {searchOpen && (
@@ -724,8 +678,6 @@ export default function Navbar({
             </motion.div>
           )}
         </AnimatePresence>
-
-        {/* MOBILE MENU DRAWER */}
 
         <AnimatePresence>
           {menuOpen && (
@@ -805,10 +757,6 @@ export default function Navbar({
           )}
         </AnimatePresence>
       </motion.header>
-
-      {/* =====================================================
-          CART DRAWER
-      ====================================================== */}
 
       <AnimatePresence>
         {cartOpen && (
@@ -1239,10 +1187,6 @@ export default function Navbar({
         )}
       </AnimatePresence>
 
-      {/* =====================================================
-          CHECKOUT
-      ====================================================== */}
-
       <AnimatePresence>
         {checkoutOpen && (
           <>
@@ -1435,10 +1379,6 @@ export default function Navbar({
           </>
         )}
       </AnimatePresence>
-
-      {/* =====================================================
-          LOGIN / SIGNUP
-      ====================================================== */}
 
       <AnimatePresence>
         {authOpen && (
@@ -1802,11 +1742,7 @@ export default function Navbar({
         )}
       </AnimatePresence>
 
-      {/* =====================================================
-          PROFILE PAGE
-      ====================================================== */}
-
-      <AnimatePresence>
+            <AnimatePresence>
         {profileOpen && user && (
           <>
             <motion.div
@@ -2245,10 +2181,6 @@ export default function Navbar({
         )}
       </AnimatePresence>
 
-      {/* =====================================================
-          ORDER SUCCESS
-      ====================================================== */}
-
       <AnimatePresence>
         {orderConfirmed && (
           <motion.div
@@ -2379,9 +2311,6 @@ export default function Navbar({
         )}
       </AnimatePresence>
 
-      {/* =====================================================
-          ORDER TRACKING
-      ====================================================== */}
 
       <AnimatePresence>
         {trackingOpen && (

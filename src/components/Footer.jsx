@@ -11,13 +11,11 @@ export default function Footer() {
 
   return (
     <footer className="relative overflow-hidden bg-slate-950 px-5 pb-10 pt-20 text-white [perspective:1000px]">
-      {/* Background Glow */}
       <div className="pointer-events-none absolute left-1/4 top-0 h-96 w-96 rounded-full bg-pink-600/10 blur-[120px]" />
       <div className="pointer-events-none absolute bottom-0 right-1/4 h-96 w-96 rounded-full bg-indigo-600/10 blur-[120px]" />
 
       <div className="relative mx-auto max-w-full">
         <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-4">
-          {/* Brand */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -49,7 +47,6 @@ export default function Footer() {
             </p>
           </motion.div>
 
-          {/* Quick Links */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -81,7 +78,6 @@ export default function Footer() {
             </div>
           </motion.div>
 
-          {/* Popular Categories */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}

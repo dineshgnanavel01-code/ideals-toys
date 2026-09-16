@@ -150,9 +150,7 @@ export default function Categories() {
           </p>
         </motion.div>
 
-        {/* =================================================
-            3D CATEGORY GRID
-        ================================================= */}
+      
         <div className="grid grid-cols-2 gap-5 [perspective:1400px] sm:gap-7 md:grid-cols-3 lg:grid-cols-6">
           {categories.map((category, index) => {
             const Icon = category.icon;
@@ -195,16 +193,12 @@ export default function Categories() {
                 }}
                 className="group relative h-[270px] cursor-pointer"
               >
-                {/* ==========================================
-                    GLOW BEHIND CARD
-                ========================================== */}
+               
                 <div
                   className={`absolute inset-3 rounded-[35px] ${category.glow} opacity-0 blur-2xl transition-all duration-500 group-hover:opacity-30`}
                 />
 
-                {/* ==========================================
-                    MAIN CARD
-                ========================================== */}
+            
                 <div
                   className={`relative h-full overflow-hidden rounded-[32px] border border-white/80 bg-gradient-to-br ${category.gradient} p-5 shadow-xl shadow-slate-200/70 transition-all duration-500 group-hover:shadow-2xl`}
                 >
@@ -245,10 +239,7 @@ export default function Categories() {
                     </span>
                   </div>
 
-                  {/* ========================================
-                      3D ICON
-                  ======================================== */}
-                  <div
+                              <div
                     style={{
                       transform: "translateZ(60px)",
                     }}
@@ -297,10 +288,7 @@ export default function Categories() {
                     </motion.span>
                   </div>
 
-                  {/* ========================================
-                      CONTENT
-                  ======================================== */}
-                  <div
+                              <div
                     style={{
                       transform: "translateZ(35px)",
                     }}
@@ -343,9 +331,6 @@ export default function Categories() {
           })}
         </div>
 
-        {/* =================================================
-            BOTTOM CTA
-        ================================================= */}
         <motion.div
           initial={{ opacity: 0, y: 25 }}
           whileInView={{ opacity: 1, y: 0 }}

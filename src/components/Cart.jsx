@@ -91,7 +91,6 @@ export default function Cart({
               ) : (
                 <AnimatePresence mode="popLayout">
                   {cart.map((item) => {
-                    // Check all possible property names for the image
                     const rawImage = item.image || item.img || item.imageUrl || item.photo;
                     const imageSource = getImageUrl(rawImage);
 
