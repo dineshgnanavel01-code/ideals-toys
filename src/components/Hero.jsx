@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import {ArrowRight,Blocks, Gamepad2, Play,Sparkles, Star,Zap,Circle,} from "lucide-react";
+import {ArrowRight, Blocks,Gamepad2,Play,Sparkles,Star,Zap, Circle,} from "lucide-react";
 
 const floatingToys = [
   {
@@ -47,10 +47,9 @@ export default function Hero() {
       id="home"
       className="relative min-h-screen overflow-hidden bg-[#fff7ed] pt-20"
     >
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_10%_20%,rgba(255,100,180,0.30),transparent_27%),radial-gradient(circle_at_90%_20%,rgba(60,180,255,0.30),transparent_30%),radial-gradient(circle_at_50%_90%,rgba(255,210,50,0.30),transparent_35%)]" />
 
-
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_10%_20%,rgba(255,100,180,0.30),transparent_27%),radial-gradient(circle_at_90%_20%,rgba(60,180,255,0.30),transparent_30%),radial-gradient(circle_at_50%_90%,rgba(255,210,50,0.30),transparent_35%)]" />
-
+      {/* Pink glow */}
       <motion.div
         animate={{
           x: [0, 40, 0],
@@ -62,9 +61,10 @@ export default function Hero() {
           repeat: Infinity,
           ease: "easeInOut",
         }}
-        className="absolute -left-40 top-20 h-[500px] w-[500px] rounded-full bg-pink-300/20 blur-[100px]"
+        className="pointer-events-none absolute -left-40 top-20 h-[500px] w-[500px] rounded-full bg-pink-300/20 blur-[100px]"
       />
 
+      {/* Blue glow */}
       <motion.div
         animate={{
           x: [0, -40, 0],
@@ -76,11 +76,10 @@ export default function Hero() {
           repeat: Infinity,
           ease: "easeInOut",
         }}
-        className="absolute -right-40 bottom-0 h-[600px] w-[600px] rounded-full bg-blue-300/20 blur-[110px]"
+        className="pointer-events-none absolute -right-40 bottom-0 h-[600px] w-[600px] rounded-full bg-blue-300/20 blur-[110px]"
       />
 
-      
-
+      {/* Pink ring */}
       <motion.div
         animate={{
           rotate: 360,
@@ -97,9 +96,10 @@ export default function Hero() {
             repeat: Infinity,
           },
         }}
-        className="absolute -left-48 top-20 h-[550px] w-[550px] rounded-full border-[60px] border-pink-300/20"
+        className="pointer-events-none absolute -left-48 top-20 h-[550px] w-[550px] rounded-full border-[60px] border-pink-300/20"
       />
 
+      {/* Blue ring */}
       <motion.div
         animate={{
           rotate: -360,
@@ -116,14 +116,14 @@ export default function Hero() {
             repeat: Infinity,
           },
         }}
-        className="absolute -right-48 bottom-0 h-[650px] w-[650px] rounded-full border-[80px] border-blue-300/20"
+        className="pointer-events-none absolute -right-48 bottom-0 h-[650px] w-[650px] rounded-full border-[80px] border-blue-300/20"
       />
 
-     
+      {/* Particles */}
       {particles.map((_, index) => (
         <motion.div
           key={index}
-          className="absolute h-2 w-2 rounded-full bg-white shadow-lg"
+          className="pointer-events-none absolute h-2 w-2 rounded-full bg-white shadow-lg"
           style={{
             left: `${4 + ((index * 17) % 92)}%`,
             top: `${8 + ((index * 23) % 84)}%`,
@@ -143,12 +143,11 @@ export default function Hero() {
         />
       ))}
 
-     
-
+      {/* Floating toys */}
       {floatingToys.map((toy, index) => (
         <motion.div
           key={index}
-          className={`absolute ${toy.className} ${toy.size} z-10 hidden select-none sm:block`}
+          className={`pointer-events-none absolute ${toy.className} ${toy.size} z-10 hidden select-none sm:block`}
           initial={{
             opacity: 0,
             scale: 0,
@@ -181,18 +180,16 @@ export default function Hero() {
           }}
           style={{
             transform: `translateZ(${toy.depth}px)`,
-            filter:
-              "drop-shadow(0 25px 20px rgba(0,0,0,0.16))",
+            filter: "drop-shadow(0 25px 20px rgba(0,0,0,0.16))",
           }}
         >
           {toy.emoji}
         </motion.div>
       ))}
 
-      
-
-      <div className="relative z-20 mx-auto grid min-h-[calc(100vh-80px)] max-w-full items-center gap-14 px-5 py-16 lg:grid-cols-2 lg:px-8">
-       
+      {/* Main content */}
+      <div className="relative z-20 mx-auto grid min-h-[calc(100vh-80px)] max-w-[1500px] items-center gap-10 px-5 py-12 sm:px-8 sm:py-16 lg:grid-cols-2 lg:gap-14">
+        {/* LEFT CONTENT */}
         <motion.div
           initial={{
             opacity: 0,
@@ -206,9 +203,9 @@ export default function Hero() {
             duration: 0.8,
             ease: "easeOut",
           }}
+          className="w-full"
         >
           {/* Badge */}
-
           <motion.div
             initial={{
               opacity: 0,
@@ -229,7 +226,7 @@ export default function Hero() {
               rotateX: 5,
               rotateY: -5,
             }}
-            className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/80 bg-white/75 px-5 py-2.5 text-sm font-black text-pink-600 shadow-xl shadow-pink-200/30 backdrop-blur-xl [perspective:800px]"
+            className="mb-6 inline-flex max-w-full items-center gap-2 rounded-full border border-white/80 bg-white/75 px-4 py-2.5 text-sm font-black text-pink-600 shadow-xl shadow-pink-200/30 backdrop-blur-xl sm:px-5"
           >
             <motion.span
               animate={{
@@ -240,15 +237,15 @@ export default function Hero() {
                 duration: 2,
                 repeat: Infinity,
               }}
+              className="shrink-0"
             >
               <Sparkles size={17} />
             </motion.span>
 
-            Big Fun. Little Prices.
+            <span>Big Fun. Little Prices.</span>
           </motion.div>
 
           {/* Heading */}
-
           <motion.h1
             initial={{
               opacity: 0,
@@ -262,7 +259,7 @@ export default function Hero() {
               delay: 0.35,
               duration: 0.7,
             }}
-            className="max-w-full text-5xl font-black leading-[0.92] tracking-tight text-slate-800 sm:text-6xl lg:text-7xl xl:text-8xl"
+            className="max-w-4xl text-5xl font-black leading-[0.92] tracking-tight text-slate-800 sm:text-6xl lg:text-7xl xl:text-8xl"
           >
             Play.
 
@@ -285,7 +282,7 @@ export default function Hero() {
             Imagine.
           </motion.h1>
 
-
+          {/* Description */}
           <motion.p
             initial={{
               opacity: 0,
@@ -298,15 +295,16 @@ export default function Hero() {
             transition={{
               delay: 0.5,
             }}
-            className="mt-7 max-w-full text-base font-medium leading-7 text-slate-600 sm:text-lg"
+            className="mt-7 max-w-2xl text-base font-medium leading-7 text-slate-600 sm:text-lg"
           >
-            Discover colorful toys, creative games, educational
-            kits and adorable friends designed to make every
-            childhood moment unforgettable.
+            Discover colorful toys, creative games, educational kits and
+            adorable friends designed to make every childhood moment
+            unforgettable.
           </motion.p>
 
-          {/* Buttons */}
-
+          {/* =========================
+              CTA BUTTONS
+          ========================= */}
           <motion.div
             initial={{
               opacity: 0,
@@ -319,25 +317,21 @@ export default function Hero() {
             transition={{
               delay: 0.65,
             }}
-            className="mt-8 flex flex-wrap gap-4"
+            className="mt-8 flex w-full flex-col gap-3 sm:flex-row sm:flex-wrap sm:gap-4"
           >
-            {/* SHOP BUTTON */}
-
+            {/* SHOP NOW */}
             <motion.a
               href="#shop"
               whileHover={{
-                scale: 1.08,
-                y: -5,
-                rotateX: 8,
-                rotateY: -4,
+                scale: 1.05,
+                y: -4,
               }}
               whileTap={{
-                scale: 0.94,
+                scale: 0.96,
               }}
-              className="group relative flex items-center gap-2 overflow-hidden rounded-2xl bg-gradient-to-r from-pink-500 to-purple-500 px-7 py-4 font-black text-white shadow-2xl shadow-pink-300/50 [perspective:800px]"
+              className="group relative z-30 flex min-h-[54px] w-full items-center justify-center gap-3 overflow-hidden rounded-2xl bg-gradient-to-r from-pink-500 to-purple-500 px-6 py-4 font-black text-white shadow-2xl shadow-pink-300/50 sm:w-auto sm:min-w-[160px]"
             >
               {/* Shine */}
-
               <motion.span
                 animate={{
                   x: ["-120%", "150%"],
@@ -347,40 +341,44 @@ export default function Hero() {
                   repeat: Infinity,
                   repeatDelay: 2,
                 }}
-                className="absolute inset-y-0 w-10 rotate-12 bg-white/30 blur-md"
+                className="pointer-events-none absolute inset-y-0 left-0 w-10 rotate-12 bg-white/30 blur-md"
               />
 
-              <span className="relative z-10">
+              <span className="relative z-10 whitespace-nowrap">
                 Shop Now
               </span>
 
+              {/* ARROW - FIXED */}
               <motion.span
                 animate={{
-                  x: [0, 6, 0],
+                  x: [0, 5, 0],
                 }}
                 transition={{
                   duration: 1.2,
                   repeat: Infinity,
+                  ease: "easeInOut",
                 }}
-                className="relative z-10"
+                className="relative z-10 flex shrink-0 items-center justify-center"
               >
-                <ArrowRight size={19} />
+                <ArrowRight
+                  size={20}
+                  strokeWidth={3}
+                  className="block"
+                />
               </motion.span>
             </motion.a>
 
-            {/* EXPLORE BUTTON */}
-
+            {/* EXPLORE TOYS */}
             <motion.a
               href="#categories"
               whileHover={{
-                scale: 1.08,
-                y: -5,
-                rotateX: 8,
+                scale: 1.05,
+                y: -4,
               }}
               whileTap={{
-                scale: 0.94,
+                scale: 0.96,
               }}
-              className="flex items-center gap-2 rounded-2xl border border-white bg-white/80 px-7 py-4 font-black text-slate-700 shadow-xl backdrop-blur-xl [perspective:800px]"
+              className="relative z-30 flex min-h-[54px] w-full items-center justify-center gap-3 rounded-2xl border border-white bg-white/90 px-6 py-4 font-black text-slate-700 shadow-xl backdrop-blur-xl sm:w-auto sm:min-w-[180px]"
             >
               <motion.span
                 animate={{
@@ -391,6 +389,7 @@ export default function Hero() {
                   repeat: Infinity,
                   ease: "linear",
                 }}
+                className="flex shrink-0 items-center justify-center"
               >
                 <Play
                   size={18}
@@ -398,12 +397,13 @@ export default function Hero() {
                 />
               </motion.span>
 
-              Explore Toys
+              <span className="whitespace-nowrap">
+                Explore Toys
+              </span>
             </motion.a>
           </motion.div>
 
           {/* Stats */}
-
           <motion.div
             initial={{
               opacity: 0,
@@ -416,7 +416,7 @@ export default function Hero() {
             transition={{
               delay: 0.8,
             }}
-            className="mt-10 flex flex-wrap gap-8"
+            className="mt-10 flex flex-wrap gap-x-8 gap-y-5"
           >
             {[
               ["500+", "Fun Products"],
@@ -428,9 +428,8 @@ export default function Hero() {
                 whileHover={{
                   y: -7,
                   scale: 1.08,
-                  rotateX: 8,
                 }}
-                className="[perspective:700px]"
+                className="min-w-[80px]"
               >
                 <strong className="text-2xl font-black text-slate-800">
                   {number}
@@ -444,7 +443,9 @@ export default function Hero() {
           </motion.div>
         </motion.div>
 
-
+        {/* =========================
+            RIGHT 3D TOY
+        ========================= */}
         <motion.div
           initial={{
             opacity: 0,
@@ -463,10 +464,9 @@ export default function Hero() {
             type: "spring",
             stiffness: 80,
           }}
-          className="relative flex min-h-[540px] items-center justify-center [perspective:1600px]"
+          className="relative flex min-h-[500px] items-center justify-center [perspective:1600px] sm:min-h-[540px]"
         >
-          {/* Outer glow */}
-
+          {/* Glow */}
           <motion.div
             animate={{
               scale: [1, 1.2, 1],
@@ -476,11 +476,10 @@ export default function Hero() {
               duration: 4,
               repeat: Infinity,
             }}
-            className="absolute h-80 w-80 rounded-full bg-pink-400/40 blur-[90px] sm:h-[420px] sm:w-[420px]"
+            className="absolute h-72 w-72 rounded-full bg-pink-400/40 blur-[90px] sm:h-[420px] sm:w-[420px]"
           />
 
           {/* Ring 1 */}
-
           <motion.div
             animate={{
               rotate: 360,
@@ -490,11 +489,10 @@ export default function Hero() {
               repeat: Infinity,
               ease: "linear",
             }}
-            className="absolute h-[390px] w-[390px] rounded-full border-2 border-dashed border-pink-300/70 sm:h-[510px] sm:w-[510px]"
+            className="absolute h-[330px] w-[330px] rounded-full border-2 border-dashed border-pink-300/70 sm:h-[510px] sm:w-[510px]"
           />
 
           {/* Ring 2 */}
-
           <motion.div
             animate={{
               rotate: -360,
@@ -504,11 +502,10 @@ export default function Hero() {
               repeat: Infinity,
               ease: "linear",
             }}
-            className="absolute h-[330px] w-[330px] rounded-full border-2 border-dashed border-blue-300/60 sm:h-[440px] sm:w-[440px]"
+            className="absolute h-[280px] w-[280px] rounded-full border-2 border-dashed border-blue-300/60 sm:h-[440px] sm:w-[440px]"
           />
 
           {/* Ring 3 */}
-
           <motion.div
             animate={{
               rotate: 360,
@@ -518,10 +515,10 @@ export default function Hero() {
               repeat: Infinity,
               ease: "linear",
             }}
-            className="absolute h-[280px] w-[280px] rounded-full border border-purple-300/50 sm:h-[380px] sm:w-[380px]"
+            className="absolute h-[235px] w-[235px] rounded-full border border-purple-300/50 sm:h-[380px] sm:w-[380px]"
           />
 
-        
+          {/* Glass card */}
           <motion.div
             animate={{
               y: [0, -14, 0],
@@ -533,7 +530,7 @@ export default function Hero() {
               ease: "easeInOut",
             }}
             whileHover={{
-              scale: 1.06,
+              scale: 1.04,
               rotateY: 12,
               rotateX: -8,
               rotateZ: 0,
@@ -542,10 +539,9 @@ export default function Hero() {
             style={{
               transformStyle: "preserve-3d",
             }}
-            className="group relative flex h-[390px] w-[300px] items-center justify-center rounded-[55px] border border-white/90 bg-white/45 shadow-[0_45px_120px_rgba(80,40,100,0.30)] backdrop-blur-2xl transition-shadow duration-300 hover:shadow-[0_60px_140px_rgba(190,70,180,0.35)] sm:h-[480px] sm:w-[390px]"
+            className="group relative flex h-[370px] w-[270px] items-center justify-center rounded-[45px] border border-white/90 bg-white/45 shadow-[0_45px_120px_rgba(80,40,100,0.30)] backdrop-blur-2xl transition-shadow duration-300 hover:shadow-[0_60px_140px_rgba(190,70,180,0.35)] sm:h-[480px] sm:w-[390px] sm:rounded-[55px]"
           >
             {/* Glass shine */}
-
             <motion.div
               animate={{
                 x: ["-120%", "150%"],
@@ -558,12 +554,10 @@ export default function Hero() {
               className="pointer-events-none absolute inset-y-0 z-30 w-20 rotate-[20deg] bg-white/30 blur-xl"
             />
 
-            {/* Top glass highlight */}
-
+            {/* Highlight */}
             <div className="absolute left-8 right-8 top-6 h-24 rounded-full bg-white/50 blur-2xl" />
 
             {/* Inner glow */}
-
             <motion.div
               animate={{
                 scale: [1, 1.1, 1],
@@ -576,8 +570,7 @@ export default function Hero() {
               className="absolute h-64 w-64 rounded-full bg-pink-300/30 blur-3xl"
             />
 
-           
-
+            {/* Teddy */}
             <motion.div
               animate={{
                 y: [0, -10, 0],
@@ -585,7 +578,7 @@ export default function Hero() {
                 rotateY: [-8, 8, -8],
               }}
               whileHover={{
-                scale: 1.15,
+                scale: 1.12,
                 rotateY: 25,
                 rotateX: -10,
               }}
@@ -594,15 +587,13 @@ export default function Hero() {
                 repeat: Infinity,
                 ease: "easeInOut",
               }}
-              className="relative z-20 select-none text-[145px] drop-shadow-[0_35px_30px_rgba(0,0,0,0.25)] sm:text-[190px]"
+              className="relative z-20 select-none text-[120px] drop-shadow-[0_35px_30px_rgba(0,0,0,0.25)] sm:text-[190px]"
               style={{
                 transform: "translateZ(110px)",
                 transformStyle: "preserve-3d",
               }}
             >
               🧸
-
-              {/* Teddy glow */}
 
               <motion.div
                 animate={{
@@ -617,32 +608,31 @@ export default function Hero() {
               />
             </motion.div>
 
-            
-
+            {/* Best seller card */}
             <motion.div
               animate={{
                 y: [0, -10, 0],
                 rotateZ: [-3, 3, -3],
               }}
               whileHover={{
-                scale: 1.1,
-                rotateY: -12,
+                scale: 1.08,
+                rotateY: 10,
               }}
               transition={{
-                duration: 2.5,
+                duration: 2,
                 repeat: Infinity,
               }}
-              className="absolute -bottom-7 -left-7 z-40 rounded-3xl border border-white bg-white/95 p-4 shadow-2xl backdrop-blur-xl sm:-left-12"
+              className="absolute -bottom-5 -left-4 z-40 rounded-3xl border border-white bg-white/95 p-3 shadow-2xl backdrop-blur-xl sm:-bottom-7 sm:-left-12 sm:p-4"
               style={{
                 transform: "translateZ(140px)",
                 transformStyle: "preserve-3d",
               }}
             >
-              <p className="text-[10px] font-black tracking-wider text-slate-400">
+              <p className="text-[9px] font-black tracking-wider text-slate-400 sm:text-[10px]">
                 BEST SELLER
               </p>
 
-              <p className="mt-1 font-black text-slate-800">
+              <p className="mt-1 text-sm font-black text-slate-800 sm:text-base">
                 Teddy Bear
               </p>
 
@@ -662,21 +652,20 @@ export default function Hero() {
               </p>
             </motion.div>
 
-            
+            {/* Discount */}
             <motion.div
               animate={{
                 y: [0, -8, 0],
                 rotate: [-7, 7, -7],
               }}
               whileHover={{
-                scale: 1.15,
-                rotateY: 15,
+                scale: 1.1,
               }}
               transition={{
                 duration: 2,
                 repeat: Infinity,
               }}
-              className="absolute -right-5 top-10 z-40 rounded-2xl bg-gradient-to-r from-yellow-300 to-orange-300 px-5 py-3 font-black text-orange-900 shadow-2xl sm:-right-10"
+              className="absolute -right-4 top-8 z-40 rounded-2xl bg-gradient-to-r from-yellow-300 to-orange-300 px-3 py-2 text-sm font-black text-orange-900 shadow-2xl sm:-right-10 sm:px-5 sm:py-3"
               style={{
                 transform: "translateZ(160px)",
               }}
@@ -687,22 +676,21 @@ export default function Hero() {
               </div>
             </motion.div>
 
-        
-
+            {/* Game icon */}
             <motion.div
               animate={{
                 y: [0, -12, 0],
                 rotate: [0, 10, 0],
               }}
               whileHover={{
-                scale: 1.2,
+                scale: 1.15,
                 rotateY: 20,
               }}
               transition={{
                 duration: 3,
                 repeat: Infinity,
               }}
-              className="absolute -right-5 bottom-20 z-40 flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-blue-400 to-blue-600 text-white shadow-2xl sm:-right-9"
+              className="absolute -right-4 bottom-16 z-40 flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-blue-400 to-blue-600 text-white shadow-2xl sm:-right-9 sm:h-14 sm:w-14"
               style={{
                 transform: "translateZ(130px)",
               }}
@@ -710,21 +698,21 @@ export default function Hero() {
               <Gamepad2 size={27} />
             </motion.div>
 
-            
+            {/* Blocks icon */}
             <motion.div
               animate={{
                 y: [0, 10, 0],
                 rotate: [0, -10, 0],
               }}
               whileHover={{
-                scale: 1.2,
+                scale: 1.15,
                 rotateY: -20,
               }}
               transition={{
                 duration: 3.5,
                 repeat: Infinity,
               }}
-              className="absolute -left-5 top-20 z-40 flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-purple-400 to-purple-600 text-white shadow-2xl sm:-left-9"
+              className="absolute -left-4 top-16 z-40 flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-purple-400 to-purple-600 text-white shadow-2xl sm:-left-9 sm:h-14 sm:w-14"
               style={{
                 transform: "translateZ(130px)",
               }}
@@ -732,8 +720,7 @@ export default function Hero() {
               <Blocks size={27} />
             </motion.div>
 
-           
-
+            {/* Orbit star */}
             <motion.div
               animate={{
                 rotate: 360,
@@ -746,7 +733,7 @@ export default function Hero() {
               className="absolute inset-0 z-30"
             >
               <div
-                className="absolute left-1/2 top-[-18px] -translate-x-1/2 text-3xl"
+                className="absolute left-1/2 top-[-18px] -translate-x-1/2 text-2xl sm:text-3xl"
                 style={{
                   transform: "translateZ(180px)",
                 }}
@@ -755,6 +742,7 @@ export default function Hero() {
               </div>
             </motion.div>
 
+            {/* Orbit balloon */}
             <motion.div
               animate={{
                 rotate: -360,
@@ -767,7 +755,7 @@ export default function Hero() {
               className="absolute inset-0 z-30"
             >
               <div
-                className="absolute bottom-[-15px] left-1/2 -translate-x-1/2 text-3xl"
+                className="absolute bottom-[-15px] left-1/2 -translate-x-1/2 text-2xl sm:text-3xl"
                 style={{
                   transform: "translateZ(180px)",
                 }}
@@ -777,8 +765,7 @@ export default function Hero() {
             </motion.div>
           </motion.div>
 
-          {/* Orbit dots */}
-
+          {/* Orbit dot 1 */}
           <motion.div
             animate={{
               rotate: 360,
@@ -788,11 +775,12 @@ export default function Hero() {
               repeat: Infinity,
               ease: "linear",
             }}
-            className="absolute h-[370px] w-[370px] sm:h-[490px] sm:w-[490px]"
+            className="absolute h-[310px] w-[310px] sm:h-[490px] sm:w-[490px]"
           >
             <div className="absolute left-1/2 top-0 h-4 w-4 -translate-x-1/2 rounded-full bg-pink-500 shadow-[0_0_25px_rgba(236,72,153,0.8)]" />
           </motion.div>
 
+          {/* Orbit dot 2 */}
           <motion.div
             animate={{
               rotate: -360,
@@ -802,13 +790,12 @@ export default function Hero() {
               repeat: Infinity,
               ease: "linear",
             }}
-            className="absolute h-[320px] w-[320px] sm:h-[420px] sm:w-[420px]"
+            className="absolute h-[270px] w-[270px] sm:h-[420px] sm:w-[420px]"
           >
             <div className="absolute bottom-0 left-1/2 h-3 w-3 -translate-x-1/2 rounded-full bg-blue-500 shadow-[0_0_20px_rgba(59,130,246,0.8)]" />
           </motion.div>
 
-          {/* Tiny circles */}
-
+          {/* Tiny circle */}
           <motion.div
             animate={{
               scale: [1, 1.4, 1],
@@ -823,6 +810,7 @@ export default function Hero() {
             <Circle size={12} fill="currentColor" />
           </motion.div>
 
+          {/* Tiny circle */}
           <motion.div
             animate={{
               scale: [1, 1.4, 1],
@@ -840,8 +828,7 @@ export default function Hero() {
       </div>
 
       {/* Bottom wave */}
-
-      <div className="absolute bottom-0 left-0 right-0 h-20 bg-white/30 [clip-path:ellipse(70%_50%_at_50%_100%)]" />
+      <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-20 bg-white/30 [clip-path:ellipse(70%_50%_at_50%_100%)]" />
     </section>
   );
 }
